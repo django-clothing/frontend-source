@@ -233,6 +233,9 @@
   .nav--close {
     cursor: pointer;
   }
+  .nav--close-button {
+    left: calc(500px + 5px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
