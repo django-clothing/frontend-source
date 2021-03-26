@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Document</title>
+    <!-- js -->
+    <script src="js/navigation.js"></script>
+
+    <title>Django shop</title>
 </head>
+
 <body>
-    <header></header>
-    <nav class="nav">
-       <a href="" class="nav--link">Lookbook</a>
-       <a href="" class="nav--link">Collection</a>
-       <a href="" class="nav--link">About</a> 
+    <header class="header">
+        <div class="header--burger" onclick="toggleNav()">
+            <img class="header--burger--img" src="img/icons/menu.svg" alt="navigation ausklappen">
+        </div>
+        <div class="header--logo">
+            <img class="header--logo--img" src="img/logo/logo.svg" alt="django main logo">
+        </div>
+        <div class="header--cart">
+            <img class="header--cart--img" src="img/icons/shopping-cart.svg" alt="Warenkorb aufrufen">
+        </div>
+    </header>
+    <nav>
+        <div id="nav-sidebar" class="nav--hidden">
+            <div class="nav--logo--container">
+                <div class="nav--logo--logo-container">
+                    <img src="img/logo/logo.svg" alt="Logo" class="nav--logo--img">
+                </div>
+                <div class="nav--close" onclick="toggleNav()">
+                    <img class="nav--close--img" src="img/icons/left-arrow.svg" alt="close sidebar">
+                </div>
+            </div>
+            <a href="" class="nav--link">Lookbook</a>
+            <a href="" class="nav--link">Collection</a>
+            <a href="" class="nav--link">About</a>
+        </div>
     </nav>
     <main>
         <div style="background-color: red; height: 500px;">a</div>
     </main>
     <footer></footer>
 </body>
+
 </html>
