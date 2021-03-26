@@ -62,8 +62,14 @@
         border-bottom: 0.01px rgb(218, 218, 218) solid;
         padding-left: 15px
     }
-
-
+    
+    &--close-button{
+        position: absolute;
+        z-index: 1;
+        top: 15px;
+        left: calc(70vw + 5px);
+        width: 30px;
+    }
 
     &--close{
         width: 20%;
