@@ -126,6 +126,10 @@
   font-size: 16px;
 }
 
+.nodecoration {
+  text-decoration: none;
+}
+
 .header {
   display: flex;
   flex-direction: row;
