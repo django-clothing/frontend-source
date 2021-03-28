@@ -114,12 +114,21 @@
   font-weight: normal;
   src: local("ITC Franklin Gothic Std Heavy Italic"), url("../font/ITCFranklinGothicStd-HvyIt.woff") format("woff");
 }
+.pointer {
+  cursor: pointer;
+}
+
+.text-white {
+  color: white;
+}
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 50px;
+  height: 75px;
   align-items: center;
+  background-color: black;
 }
 .header--burger {
   padding-left: 15px;
@@ -129,7 +138,7 @@
   height: 25px;
 }
 .header--logo {
-  height: 80%;
+  height: 50%;
 }
 .header--logo--img {
   height: 100%;
@@ -155,7 +164,7 @@
   width: 70vw;
   max-width: 500px;
   height: 100%;
-  margin-top: -50px;
+  margin-top: -75px;
   filter: drop-shadow(0 0 0.75rem black);
 }
 .nav--link {
@@ -168,6 +177,7 @@
   padding-left: 15px;
 }
 .nav--close-button {
+  filter: drop-shadow(0 0 0.75rem black);
   position: absolute;
   z-index: 1;
   top: 15px;
@@ -198,10 +208,23 @@
   width: 100%;
 }
 
+.hero--img {
+  width: 100%;
+}
+
+.footer {
+  background-color: black;
+}
+
+@media (min-width: 768px) {
+  .nav--close-button {
+    left: calc(500px + 5px);
+  }
+}
 @media (min-width: 992px) {
   .header {
     justify-content: space-around;
-    height: 75px;
+    height: 100px;
   }
   .header--burger {
     padding-left: 0;
@@ -228,7 +251,7 @@
   }
 
   .nav {
-    margin-top: -75px;
+    margin-top: -100px;
   }
   .nav--close {
     cursor: pointer;

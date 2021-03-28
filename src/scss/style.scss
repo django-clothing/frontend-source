@@ -1,12 +1,14 @@
 @import "reset.css";
 @import "font.scss";
+@import "util.scss";
 
 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 50px;
+    height: 75px;
     align-items: center;
+    background-color: black;
 
     &--burger{
         padding-left: 15px;
@@ -17,7 +19,7 @@
     }
 
     &--logo{
-        height: 80%;
+        height: 50%;
 
         &--img{
             height: 100%
@@ -50,7 +52,7 @@
     width: 70vw;
     max-width: 500px;
     height: 100%;
-    margin-top: -50px; 
+    margin-top: -75px; 
     filter: drop-shadow(0 0 0.75rem black);
 
     &--link{
@@ -64,6 +66,7 @@
     }
 
     &--close-button{
+        filter: drop-shadow(0 0 0.75rem black);
         position: absolute;
         z-index: 1;
         top: 15px;
@@ -102,17 +105,33 @@
     }
 }
 
+.hero{
+    &--img{
+        width: 100%;
+    }
+}
+
+.footer{
+    background-color: black;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .nav{
+        &--close-button{
+            left: calc(500px + 5px);
+        }
+    }
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
     .header{
         justify-content: space-around;
-        height: 75px;
+        height: 100px;
 
         &--burger{
             padding-left: 0;
@@ -144,7 +163,7 @@
     }
 
     .nav{
-        margin-top: -75px;
+        margin-top: -100px;
 
         &--close{
             cursor: pointer;
