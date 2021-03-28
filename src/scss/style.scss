@@ -107,12 +107,24 @@
 
 .hero{
     &--img{
+        display: block;
         width: 100%;
     }
 }
 
 .footer{
     background-color: black;
+    &--text{
+        font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    &--list{
+        margin: 10px 0 10px 0;
+    }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -170,7 +182,7 @@
         }
 
         &--close-button{
-            left: calc(500px + 5px);
+            left: calc(500px + 10px);
         }
     }
 }

@@ -122,6 +122,10 @@
   color: white;
 }
 
+.textsize {
+  font-size: 16px;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -209,11 +213,22 @@
 }
 
 .hero--img {
+  display: block;
   width: 100%;
 }
 
 .footer {
   background-color: black;
+}
+.footer--text {
+  font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 16px;
+}
+.footer--list {
+  margin: 10px 0 10px 0;
 }
 
 @media (min-width: 768px) {
@@ -257,7 +272,7 @@
     cursor: pointer;
   }
   .nav--close-button {
-    left: calc(500px + 5px);
+    left: calc(500px + 10px);
   }
 }
 
