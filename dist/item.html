@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- replace with selfhosted later-->
+
+    <!-- js -->
+    <title>Django Shop</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header--burger" onclick="toggleNav()">
+            <img class="header--burger--img" src="img/icons/menu.svg" alt="navigation ausklappen">
+        </div>
+        <div class="header--logo">
+            <a href="index.html">
+                <img class="header--logo--img" src="img/logo/logo_white.svg" alt="django main logo">
+            </a>
+        </div>
+        <div class="header--cart">
+            <a href="">
+                <img class="header--cart--img" src="img/icons/shopping-cart.svg" alt="Warenkorb aufrufen">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <script src="js/navigation.js"></script>
+        <div id="nav-sidebar" class="nav--hidden">
+            <a href="lookbook.html" class="nav--link">Lookbook</a>
+            <a href="" class="nav--link">Collection</a>
+            <a href="about.html" class="nav--link">About</a>
+        </div>
+        <img class="nav--hidden pointer" id="nav-close" class="nav--hidden" src="img/icons/close.svg" alt="zurück"
+            onclick="toggleNav()">
+    </nav>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="item--top-spacer col-12 col-sm-6">
+                    <img class="width-100" src="https://placeimg.com/250/320/animals" alt="produktbild">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="item--top-spacer">
+                        <h2 class="collection--title">Artikelname der ist lang</h2>
+                        <h3 class="item--description--title">Beschreibung</h3>
+                        <ul class="item--description--list">
+                            <li>Sieht super aus</li>
+                            <li>Baumwolle</li>
+                            <li>Sexy As Fuck</li>
+                            <li>Riecht nur ein bisschen nach chemie</li>
+                            <li>oder auch nicht</li>
+                            <li>ist auch egal</li>
+                            <li>llolololo</li>
+                        </ul>
+                        <section class="item--top-spacer flex justify-content-center">
+                            <button class="item--size--active pointer m-10">S</button>
+                            <button class="item--size--inactive pointer m-10">M</button>
+                            <button class="item--size--inactive pointer m-10">L</button>
+                            <button class="item--size--inactive pointer m-10" >XL</button>
+                        </section>
+                        <section>
+                            <button class="item--add-to-cart pointer">add to cart</button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer footer--text">
+        <ul class="text-white footer--list">
+            <li class="textsize"><a class="text-white nodecoration" href="">Support</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Versand</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Impressum</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Datenschutz</a></li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

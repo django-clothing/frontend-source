@@ -1,194 +1,308 @@
 @import "reset.css";
+@import "bootstrap-grid.css";
 @import "font.scss";
 @import "util.scss";
+@import "shared.scss";
 
-.header{
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 75px;
+  align-items: center;
+  background-color: #212121;
+
+  &--burger {
+    padding-left: 15px;
+    &--img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &--logo {
+    height: 50%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 75px;
     align-items: center;
-    background-color: black;
+  }
 
-    &--burger{
-        padding-left: 15px;
-        &--img{
-            width: 25px;
-            height: 25px;
-        }
+  &--cart {
+    padding-right: 15px;
+
+    &--img {
+      width: 25px;
+      height: 25px;
     }
-
-    &--logo{
-        height: 50%;
-
-        &--img{
-            height: 100%
-        }
-    }
-
-    &--cart{
-        padding-right: 15px;
-
-        &--img{
-            width: 25px;
-            height: 25px;
-        }
-    }
-
+  }
 }
 
-.nav{
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
-    position: absolute;
-    background-color: white;
-    
-    -webkit-transition: width 1s ease-in-out;
-    -moz-transition: width 1s ease-in-out;
-    -o-transition: width 1s ease-in-out;
-    transition: width 1s ease-in-out;
-    
-    width: 70vw;
-    max-width: 500px;
-    height: 100%;
-    margin-top: -75px; 
+.nav {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+
+  width: 70vw;
+  max-width: 500px;
+  height: 100%;
+  margin-top: -75px;
+  filter: drop-shadow(0 0 0.75rem black);
+
+  &--link {
+    font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 20px 0 20px 0;
+    border-bottom: 0.01px rgb(218, 218, 218) solid;
+    padding-left: 15px;
+  }
+
+  &--close-button {
     filter: drop-shadow(0 0 0.75rem black);
+    position: absolute;
+    z-index: 1;
+    top: 15px;
+    left: calc(70vw + 5px);
+    width: 30px;
+  }
 
-    &--link{
-        font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
-        color: black;
-        text-decoration: none;
-        font-size: 16px;
-        padding: 20px 0 20px 0;
-        border-bottom: 0.01px rgb(218, 218, 218) solid;
-        padding-left: 15px
+  &--close {
+    width: 20%;
+    margin: auto;
+
+    &--img {
+      width: 75%;
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &--logo {
+    &--container {
+      display: flex;
+      flex-direction: row;
+      padding: 15px 0 15px 15px;
+      border-bottom: 0.01px rgb(218, 218, 218) solid;
+    }
+    &--logo-container {
+      width: 70%;
+      margin: auto;
     }
 
-    &--close-button{
-        filter: drop-shadow(0 0 0.75rem black);
-        position: absolute;
-        z-index: 1;
-        top: 15px;
-        left: calc(70vw + 5px);
-        width: 30px;
+    &--img {
+      width: 100%;
     }
-
-    &--close{
-        width: 20%;
-        margin:auto;
-
-        &--img{
-            width: 75%;
-        }
-    }
-
-    &--hidden{
-        display: none;
-    }
-
-    &--logo{
-        &--container{
-            display: flex;
-            flex-direction: row;
-            padding: 15px 0 15px 15px;
-            border-bottom: 0.01px rgb(218, 218, 218) solid;
-        }
-        &--logo-container{
-            width: 70%;
-            margin:auto;
-        }
-
-        &--img{
-            width: 100%;
-        }
-    }
+  }
 }
 
-.hero{
-    &--img{
-        display: block;
-        width: 100%;
-    }
+.hero {
+  &--img {
+    display: block;
+    object-fit: cover;
+  }
 }
 
-.footer{
-    background-color: black;
-    &--text{
-        font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        font-size: 16px;
+.footer {
+  background-color: #212121;
+  &--text {
+    font-family: "ITC Franklin Gothic Std Book Condensed", "sans-serif";
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &--list {
+    margin: 10px 0 10px 0;
+  }
+}
+
+.lookbook {
+  &--content {
+    padding: 0 20px 0 20px;
+  }
+
+  &--img {
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    max-height: 480px;
+    margin: 0 0 30px 0;
+  }
+}
+
+.about {
+  &--width {
+    max-width: 75%;
+    width: 500px;
+  }
+
+  &--img {
+    margin: 30px 0;
+  }
+}
+
+.collection {
+  &--title {
+    font-weight: bolder;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 20px 0 0 0;
+  }
+  &-item {
+    color: black;
+    text-decoration: none;
+    margin: 15px 0 30px 0;
+    &--img {
+      width: 100%;
     }
 
-    &--list{
-        margin: 10px 0 10px 0;
+    &--name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 5px 0;
     }
+  }
+}
+
+.item {
+  &--top-spacer {
+    margin: 30px 0;
+  }
+
+  &--description {
+    &--title {
+      margin: 10px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &--list {
+      list-style: inside;
+      font-size: 18px;
+    }
+  }
+
+  &--size {
+    &--inactive {
+      border: black 1px solid;
+      outline: none;
+      height: 30px;
+      width: 30px;
+    }
+
+    &--active {
+      border: black 1px solid;
+      background: black;
+      outline: none;
+      color: white;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  &--add-to-cart{
+    border: black 1px solid;
+    background: black;
+    outline: none;
+    color: white;
+    width: 100%;
+    height: 50px;
+  }
+
+  &--add-to-cart:hover{
+    border: black 1px solid;
+    color: black;
+    background-color: white;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+  .container {
+    width: 100%;
+  }
+}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .nav{
-        &--close-button{
-            left: calc(500px + 5px);
-        }
+  .nav {
+    &--close-button {
+      left: calc(500px + 5px);
     }
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .header{
-        justify-content: space-around;
-        height: 100px;
+  .header {
+    justify-content: space-around;
+    height: 100px;
 
-        &--burger{
-            padding-left: 0;
+    &--burger {
+      padding-left: 0;
 
-            &--img{
-                width: 35px;
-                height: 35px;
-            }
-        }
-        &--burger:hover{
-            cursor: pointer;
-        }
-
-        &--logo:hover{
-            cursor: pointer;
-        }
-
-        &--cart{
-            padding-right: 0;
-
-            &--img{
-                width: 35px;
-                height: 35px;
-            }
-        }
-        &--cart:hover{
-            cursor: pointer;
-        }
+      &--img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    &--burger:hover {
+      cursor: pointer;
     }
 
-    .nav{
-        margin-top: -100px;
-
-        &--close{
-            cursor: pointer;
-        }
-
-        &--close-button{
-            left: calc(500px + 10px);
-        }
+    &--logo:hover {
+      cursor: pointer;
     }
+
+    &--cart {
+      padding-right: 0;
+
+      &--img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+    &--cart:hover {
+      cursor: pointer;
+    }
+  }
+
+  .nav {
+    margin-top: -100px;
+
+    &--close {
+      cursor: pointer;
+    }
+
+    &--close-button {
+      left: calc(500px + 10px);
+    }
+  }
 }
 
 // X-Large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 
 // XX-Large devices (larger desktops, 1400px and up)
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {
+}

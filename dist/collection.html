@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- js -->
+
+    <title>Django shop</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header--burger" onclick="toggleNav()">
+            <img class="header--burger--img" src="img/icons/menu.svg" alt="navigation ausklappen">
+        </div>
+        <div class="header--logo">
+            <a href="index.html">
+                <img class="header--logo--img" src="img/logo/logo_white.svg" alt="django main logo">
+            </a>
+        </div>
+        <div class="header--cart">
+            <a href="">
+                <img class="header--cart--img" src="img/icons/shopping-cart.svg" alt="Warenkorb aufrufen">
+            </a>
+        </div>
+    </header>
+    <nav>
+        <script src="js/navigation.js"></script>
+        <div id="nav-sidebar" class="nav--hidden">
+            <a href="lookbook.html" class="nav--link">Lookbook</a>
+            <a href="collection.html" class="nav--link">Collection</a>
+            <a href="about.html" class="nav--link">About</a>
+        </div>
+        <img class="nav--hidden pointer" id="nav-close" class="nav--hidden" src="img/icons/close.svg" alt="zurück"
+            onclick="toggleNav()">
+    </nav>
+    <main>
+        <div class="lookbook--content">
+            <h1 class="flex h-center collection--title">Collection name</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- item -->
+                <div class="col-6 col-md-3 flex-column collection-item">
+                    <a class="text-black nodecoration" href="item.html">
+                        <div class="flex h-center" style="background-color: green;">
+                            <img class="collection-item--img" src="https://placeimg.com/250/320/animals" alt="">
+                        </div>
+                        <h2 class="collection-item--name">College Jacke</h2>
+                        <p>299.99€</p>
+                    </a>
+                </div>
+                <!-- item -->
+                <div class="col-6 col-md-3 flex-column collection-item">
+                    <a class="text-black nodecoration" href="item.html">
+                        <div class="flex h-center" style="background-color: green;">
+                            <img class="collection-item--img" src="https://placeimg.com/250/320/animals" alt="">
+                        </div>
+                        <h2 class="collection-item--name">College Jacke</h2>
+                        <p>299.99€</p>
+                    </a>
+                </div>
+                <!-- item -->
+                <div class="col-6 col-md-3 flex-column collection-item">
+                    <a class="text-black nodecoration" href="item.html">
+                        <div class="flex h-center" style="background-color: green;">
+                            <img class="collection-item--img" src="https://placeimg.com/250/320/animals" alt="">
+                        </div>
+                        <h2 class="collection-item--name">College Jacke</h2>
+                        <p>299.99€</p>
+                    </a>
+                </div>
+                <!-- item -->
+                <div class="col-6 col-md-3 flex-column collection-item">
+                    <a class="text-black nodecoration" href="item.html">
+                        <div class="flex h-center" style="background-color: green;">
+                            <img class="collection-item--img" src="https://placeimg.com/250/320/animals" alt="">
+                        </div>
+                        <h2 class="collection-item--name">College Jacke</h2>
+                        <p>299.99€</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer footer--text">
+        <ul class="text-white footer--list">
+            <li class="textsize"><a class="text-white nodecoration" href="">Support</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Versand</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Impressum</a></li>
+            <li class="textsize"><a class="text-white nodecoration" href="">Datenschutz</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>

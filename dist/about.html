@@ -8,7 +8,6 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <!-- js -->
-
     <title>Django shop</title>
 </head>
 
@@ -32,20 +31,27 @@
         <script src="js/navigation.js"></script>
         <div id="nav-sidebar" class="nav--hidden">
             <a href="lookbook.html" class="nav--link">Lookbook</a>
-            <a href="collection.html" class="nav--link">Collection</a>
+            <a href="" class="nav--link">Collection</a>
             <a href="about.html" class="nav--link">About</a>
         </div>
-        <img class="nav--hidden pointer" id="nav-close" class="nav--hidden" src="img/icons/close.svg" alt="zurück" onclick="toggleNav()">
+        <img class="nav--hidden pointer" id="nav-close" class="nav--hidden" src="img/icons/close.svg" alt="zurück"
+            onclick="toggleNav()">
     </nav>
+
     <main>
-        <div class="hero">
-            <picture class="hero--picture">
-                <source media="(max-width: 768px)" srcset="img/hero/hero-mobile.webp">
-                <source media="(min-width: 769px)" srcset="img/hero/hero-desktop.webp">
-                <img class="hero--img" src="img/hero/hero-mobile.webp" alt="hero header">
+        <h1 class="shared--title flex h-center">About the brand</h1>
+        <section class="flex column h-center">
+            <p class="m-auto text-align-center about--width">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore
+                et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <picture class="m-auto about--width">
+                <img class="max-width-100 about--img" src="https://placeimg.com/1000/1000/animals" alt="about img">
             </picture>
-        </div>
+        </section>
+
     </main>
+
     <footer class="footer footer--text">
         <ul class="text-white footer--list">
             <li class="textsize"><a class="text-white nodecoration" href="">Support</a></li>
@@ -54,6 +60,8 @@
             <li class="textsize"><a class="text-white nodecoration" href="">Datenschutz</a></li>
         </ul>
     </footer>
+
+
 </body>
 
 </html>
