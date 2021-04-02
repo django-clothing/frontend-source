@@ -180,7 +180,6 @@
 
 * {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  overflow-x: hidden;
 }
 
 main {
@@ -272,6 +271,9 @@ main {
   width: 100%;
 }
 
+.hero {
+  overflow-x: hidden;
+}
 .hero--img {
   display: block;
   object-fit: cover;
