@@ -219,7 +219,7 @@ main {
     }
   }
 
-  &--add-to-cart{
+  &--add-to-cart {
     border: black 1px solid;
     background: black;
     outline: none;
@@ -228,10 +228,24 @@ main {
     height: 50px;
   }
 
-  &--add-to-cart:hover{
+  &--add-to-cart:hover {
     border: black 1px solid;
     color: black;
     background-color: white;
+  }
+}
+
+.cart {
+  &--full-width-headline {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  &--full-width {
+    width: 100%;
+  }
+  &--bottom-rocker {
+    margin-top: 10px;
   }
 }
 
@@ -247,6 +261,11 @@ main {
   .nav {
     &--close-button {
       left: calc(500px + 5px);
+    }
+  }
+  .cart {
+    &--bottom-rocker {
+      margin-top: 0px;
     }
   }
 }

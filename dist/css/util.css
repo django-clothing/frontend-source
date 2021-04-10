@@ -42,6 +42,14 @@
   margin: auto;
 }
 
+.m-50 {
+  margin: 50px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
 .max-width-100 {
   max-width: 100%;
 }
@@ -52,6 +60,10 @@
 
 .m-10 {
   margin: 10px;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=util.css.map */
