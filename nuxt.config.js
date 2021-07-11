@@ -4,9 +4,9 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'django',
+    title: 'django shop',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'de'
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,7 +15,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: '/css/util.css' },
+      { rel: 'stylesheet', type: 'text/css', href: '/css/fontawesome.min.css' },
+      { rel: 'stylesheet', type: 'text/css', href: '/css/solid.min.css' }
     ]
   },
 
@@ -43,7 +46,6 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios'
   ],
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
