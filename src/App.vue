@@ -1,9 +1,70 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <header class="header">
+    <div class="header--burger" onclick="toggleNav()">
+      <img
+        class="header--burger--img"
+        src="img/icons/menu.svg"
+        alt="navigation ausklappen"
+      />
+    </div>
+    <div class="header--logo">
+      <router-link to="/">
+        <img
+          class="header--logo--img"
+          src="img/logo/logo_white.svg"
+          alt="django main logo"
+        />
+      </router-link>
+    </div>
+    <div class="header--cart">
+      <router-link to="/cart">
+        <img
+          class="header--cart--img"
+          src="img/icons/shopping-cart.svg"
+          alt="Warenkorb aufrufen"
+        />
+      </router-link>
+    </div>
+  </header>
+  <nav>
+    <div id="nav-sidebar" class="nav--hidden">
+      <router-link to="/lookbook" class="nav--link">Lookbook</router-link>
+      <router-link to="/collection" class="nav--link">Collection</router-link>
+      <router-link to="/about" class="nav--link">About</router-link>
+    </div>
+    <img
+      class="nav--hidden pointer"
+      id="nav-close"
+      src="img/icons/close.svg"
+      alt="zurück"
+      onclick="toggleNav()"
+    />
+  </nav>
+  <router-view />
+  <footer class="footer footer--text">
+    <ul class="text-white footer--list">
+      <li class="textsize">
+        <router-link class="text-white nodecoration" to="/support"
+          >Support</router-link
+        >
+      </li>
+      <li class="textsize">
+        <router-link class="text-white nodecoration" to="/shipping"
+          >Versand</router-link
+        >
+      </li>
+      <li class="textsize">
+        <router-link class="text-white nodecoration" to="/imprint"
+          >Impressum</router-link
+        >
+      </li>
+      <li class="textsize">
+        <router-link class="text-white nodecoration" to="/privacy"
+          >Datenschutz</router-link
+        >
+      </li>
+    </ul>
+  </footer>
 </template>
 
 <style>
