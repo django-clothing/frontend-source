@@ -4,7 +4,7 @@ import About from '../views/About.vue'
 import Collection from '../views/Collection.vue'
 import Cart from '../views/Cart.vue'
 import Lookbook from '../views/Lookbook.vue'
-import SingleItem from '../views/SingleItem.vue'
+import Product from '../views/Product.vue'
 
 
 const routes = [
@@ -34,9 +34,9 @@ const routes = [
     component: Lookbook
   },
   {
-    path: '/item',
-    name: 'SingleItem',
-    component: SingleItem
+    path: '/product',
+    name: 'Product',
+    component: Product
   }
 ]
 
