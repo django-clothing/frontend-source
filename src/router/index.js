@@ -34,7 +34,7 @@ const routes = [
     component: Lookbook
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'Product',
     component: Product
   }
