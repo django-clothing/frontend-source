@@ -36,10 +36,14 @@
         </div>
       </div>
     </div>
+    <button @click="commitCart">commit</button>
+    <button @click="printCart">print</button>
   </main>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
   data() {
     return {
@@ -71,8 +75,22 @@ export default {
       if (this.$route.params.id !== undefined && this.$route.params.id != null) {
         console.error(this.$route.params.id)
       }
+    },
+    commitCart(){
+      const newCart = {name: "a new cart"};
+      this.$store.state.cart = newCart;
+    },
+    printCart(){
+      console.log(this.cart);
+      this.cart.name = "toll";
+
+      this.$store.state.cart = this.cart;
+      console.log(this.cart)
     }
   },
+  computed: mapState({
+    cart: state => state.cart
+  }),
   watch: {
     '$route': 'loggin'
   },
