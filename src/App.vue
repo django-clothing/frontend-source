@@ -79,13 +79,7 @@ export default {
   },
   methods: {
     async setUp() {
-      var path = process.env.VUE_APP_SHOP_STORE_URL;
-      console.log(path)
-      // TODO: WHY IS PROCESS.ENV NOT WORKING?!
-
-      //const contextResponse = await fetch(`${process.env.VUE_APP_SHOP_STORE_URL}/context`);
-      //const contextResponse = await fetch(`http://localhost:8088/store-api/context`);
-      const contextResponse = await fetch(`http://localhost:8088/store-api/context`,
+      const contextResponse = await fetch(`${process.env.VUE_APP_SHOP_STORE_URL}/context`,
           {
             headers: {
               'sw-access-key': 'SWSCAUJB3N-I3ID1SEDCEJIXFQ'
