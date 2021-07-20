@@ -72,7 +72,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   mounted() {
@@ -86,7 +85,7 @@ export default {
 
       //const contextResponse = await fetch(`${process.env.VUE_APP_SHOP_STORE_URL}/context`);
       //const contextResponse = await fetch(`http://localhost:8088/store-api/context`);
-      const contextResponse = await axios.get(`http://localhost:8088/store-api/context`,
+      const contextResponse = await fetch(`http://localhost:8088/store-api/context`,
           {
             headers: {
               'sw-access-key': 'SWSCAUJB3N-I3ID1SEDCEJIXFQ'
