@@ -69,29 +69,44 @@
       </li>
     </ul>
   </footer>
+  <button @click="setUp">click</button>
 </template>
 
 <script>
+import post from "./assets/post";
 
 export default {
   mounted() {
-    this.setUp();
   },
   methods: {
-    async setUp() {
+    async setUp(){
+      await this.getContext();
+      await this.getInitialCart(this.$store.state.contextToken);
+    },
+    async getContext() {
       const contextResponse = await fetch(`${process.env.VUE_APP_SHOP_STORE_URL}/context`,
           {
             headers: {
-              'sw-access-key': 'SWSCAUJB3N-I3ID1SEDCEJIXFQ'
+              'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`
             }
           });
       if (contextResponse.status !== 200) {
         console.error("Response failed");
       } else {
-        const context = contextResponse;
-        this.$store.state.contextToken = context.data.token;
+        const context = await contextResponse.json();
+        this.$store.state.contextToken = context.token;
       }
-    }
+    },
+    async getInitialCart(contextToken){
+      const headers = {
+        'Content-Type': 'application/json',
+        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+        'sw-context-token': contextToken
+      }
+      const initCart = {name: "customerCart"}
+      const response = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/checkout/cart`,initCart,  headers );
+      this.$store.state.cart = response;
+    },
   }
 }
 </script>
