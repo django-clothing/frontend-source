@@ -104,8 +104,7 @@ export default {
         'sw-context-token': contextToken
       }
       const initCart = {name: "customerCart"}
-      const response = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/checkout/cart`,initCart,  headers );
-      this.$store.state.cart = response;
+      this.$store.state.cart = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/checkout/cart`, initCart, headers);
     },
   }
 }
