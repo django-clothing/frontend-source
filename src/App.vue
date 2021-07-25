@@ -69,14 +69,14 @@
       </li>
     </ul>
   </footer>
-  <button @click="setUp">click</button>
 </template>
 
 <script>
 import post from "./assets/post";
 
 export default {
-  mounted() {
+  async mounted() {
+    await this.setUp()
   },
   methods: {
     async setUp(){
