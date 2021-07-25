@@ -72,20 +72,15 @@ export default {
       })
     },
     logging() {
-      if (this.$route.params.id !== undefined && this.$route.params.id != null) {
-        console.error(this.$route.params.id)
-      }
     },
     commitCart(){
       const newCart = {name: "a new cart"};
       this.$store.state.cart = newCart;
     },
     printCart(){
-      console.log(this.cart);
       this.cart.name = "toll";
 
       this.$store.state.cart = this.cart;
-      console.log(this.cart)
     }
   },
   computed: mapState({

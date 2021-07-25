@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <!-- item -->
-        <CollectionItem v-for="item in items" :key="item" />
+        <CollectionItem :item="item" v-for="item in products" :key="item" />
       </div>
     </div>
   </main>
@@ -14,6 +14,7 @@
 
 <script>
 import CollectionItem from "../components/CollectionItem.vue"
+import post from "../assets/post";
 
 export default {
   components: {
@@ -21,7 +22,28 @@ export default {
   },
   data () {
     return {
-      items: [1,2,3,4,5]
+      products: []
+    }
+  },
+  async mounted() {
+    await this.fetchProducts();
+  },
+  methods: {
+    async fetchProducts () {
+      const headers = {
+        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+      }
+      const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
+      const allProducts = allProductResponse.elements;
+
+      let filteredProducts = [];
+
+      allProducts.forEach(element => {
+        if(element._uniqueIdentifier === element.mainVariantId || element.mainVariantId == null ){
+          filteredProducts.push(element);
+        }
+      });
+      this.products = filteredProducts
     }
   }
 }
