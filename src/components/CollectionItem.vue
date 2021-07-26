@@ -1,10 +1,10 @@
 <template>
   <div class="col-6 col-md-3 flex-column collection-item">
-          <router-link class="text-black nodecoration" to="/product/1">
+          <router-link class="text-black nodecoration" :to="`/product/${item._uniqueIdentifier}`">
             <div class="flex h-center" style="background-color: green">
               <img
                 class="collection-item--img"
-                src="https://placeimg.com/250/320/animals"
+                :src="item.cover.media.url"
                 alt=""
               />
             </div>
@@ -20,7 +20,6 @@ export default {
     item: Object,
   },
   mounted() {
-    console.log(this.item);
   }
 
 }
