@@ -1,98 +1,98 @@
 <template>
-  <main>
+  <main v-if="item">
     <h1>{{ id }}</h1>
     <div class="container">
       <div class="row">
         <div class="item--top-spacer col-12 col-sm-6">
           <img
               class="width-100"
-              src="https://placeimg.com/250/320/animals"
+              :src="item.product.cover.media.url"
               alt="produktbild"
           />
         </div>
         <div class="col-12 col-sm-6">
           <div class="item--top-spacer">
-            <h2 class="collection--title">Artikelname der ist lang</h2>
+            <h2 class="collection--title">{{ item.product.translated.name }}</h2>
             <h3 class="item--description--title">Beschreibung</h3>
             <ul class="item--description--list">
-              <li>Sieht super aus</li>
-              <li>Baumwolle</li>
-              <li>Sexy As Fuck</li>
-              <li>Riecht nur ein bisschen nach chemie</li>
-              <li>oder auch nicht</li>
-              <li>ist auch egal</li>
-              <li>llolololo</li>
+              {{ item.product.translated.description }}
             </ul>
             <section class="item--top-spacer flex justify-content-center">
-              <button :id="variant.id" class="item--size--inactive pointer m-10" @click="selectVariant(variant)"
+              <button :id="variant.id" class="item--size--inactive pointer m-10"
                       :key="variant.id"
-                      v-for="variant in variants">{{ variant.name }}
+                      v-for="variant in variants"
+                      @click="loadVariant(variant._uniqueIdentifier)"
+              >{{ variant.name }}
               </button>
             </section>
             <section>
-              <button class="item--add-to-cart pointer">add to cart</button>
+              <button v-if="true" class="item--add-to-cart pointer">add to cart</button>
+              <button v-if="false" style="background: red" class="item--add-to-cart">out of stock</button>
             </section>
           </div>
         </div>
       </div>
     </div>
-    <button @click="commitCart">commit</button>
-    <button @click="printCart">print</button>
   </main>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import post from "../assets/post";
 
 export default {
   data() {
     return {
-      variants: [
-        {id: 1, name: "S"},
-        {id: 2, name: "M"},
-        {id: 3, name: "L"},
-        {id: 4, name: "XL"}
-      ],
+      item: '',
+      variants: [],
       id: null,
       selectedVariant: null
     }
   },
+  watch: {
+    "$route": "setup"
+  },
   methods: {
-    selectVariant(variant) {
-      this.selectedVariant = variant;
-      this.variants.forEach(v => {
-        let variantPicker = document.getElementById(v.id);
-        if (variantPicker.classList.contains("item--size--inactive") && variantPicker.innerHTML === this.selectedVariant.name) {
-          variantPicker.classList.add("item--size--active");
-          variantPicker.classList.remove("item--size--inactive");
-        } else {
-          variantPicker.classList.add("item--size--inactive");
-          variantPicker.classList.remove("item--size--active");
-        }
-      })
-    },
-    logging() {
-    },
-    commitCart(){
-      const newCart = {name: "a new cart"};
-      this.$store.state.cart = newCart;
-    },
-    printCart(){
-      this.cart.name = "toll";
+    async loadVariant(optionId){
+      const headers = {
+        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+      }
+      const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
+      const allProducts = allProductResponse.elements;
 
-      this.$store.state.cart = this.cart;
+      const filteredProducts = []
+
+      debugger; // eslint-disable-line no-debugger
+      allProducts.forEach(element => {
+        if(element._uniqueIdentifier === this.$route.params.id &&  element.optionIds[0] == optionId ){
+          debugger; // eslint-disable-line no-debugger
+          filteredProducts.push(element);
+        }
+      });
+      this.products = filteredProducts
+
+      console.log(allProducts);
+
+    },
+    async fetchSingleProduct(productId) {
+      const headers = {
+        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+      }
+      this.item = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product/${productId}`, {}, headers);
+    },
+    async getVariants() {
+      const options = this.item.configurator[0].options;
+      options.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+      this.variants = options;
+    },
+    async setup (productId) {
+      await this.fetchSingleProduct(productId);
+      await this.getVariants(productId);
     }
   },
-  computed: mapState({
-    cart: state => state.cart
-  }),
-  watch: {
-    '$route': 'loggin'
-  },
-  mounted() {
-    this.logging();
+  beforeMount() {
+    this.setup(this.$route.params.id);
   }
-};
+}
 </script>
 
 <style>
