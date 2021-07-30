@@ -55,23 +55,16 @@ export default {
     async loadVariant(optionId){
       const headers = {
         'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
-      }
+      };
       const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
       const allProducts = allProductResponse.elements;
 
-      const filteredProducts = []
-
-      debugger; // eslint-disable-line no-debugger
       allProducts.forEach(element => {
-        if(element._uniqueIdentifier === this.$route.params.id &&  element.optionIds[0] == optionId ){
-          debugger; // eslint-disable-line no-debugger
-          filteredProducts.push(element);
+        if(element.optionIds !== null && element.optionIds.includes(optionId)){
+          this.selectedVariant = element;
+          return true;
         }
       });
-      this.products = filteredProducts
-
-      console.log(allProducts);
-
     },
     async fetchSingleProduct(productId) {
       const headers = {
