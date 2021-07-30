@@ -18,11 +18,13 @@
               {{ item.product.translated.description }}
             </ul>
             <section class="item--top-spacer flex justify-content-center">
-              <button :id="variant.id" class="item--size--inactive pointer m-10"
+              <button :id="variant.id" v-bind:class="[selectedVariant !== null && selectedVariant.optionIds.includes(variant.id) ? 'item--size--active': 'item--size--inactive']"
+                      class="pointer m-10"
                       :key="variant.id"
                       v-for="variant in variants"
                       @click="loadVariant(variant._uniqueIdentifier)"
               >{{ variant.name }}
+                <br/>
               </button>
             </section>
             <section>
