@@ -28,7 +28,7 @@
               </button>
             </section>
             <section>
-              <button v-if="true" class="item--add-to-cart pointer">add to cart</button>
+              <button v-if="true" class="item--add-to-cart pointer" @click="addToCart">add to cart</button>
               <button v-if="false" style="background: red" class="item--add-to-cart">out of stock</button>
             </section>
           </div>
@@ -61,12 +61,19 @@ export default {
       const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
       const allProducts = allProductResponse.elements;
 
+      const possibleSelection = [];
       allProducts.forEach(element => {
-        if(element.optionIds !== null && element.optionIds.includes(optionId)){
-          this.selectedVariant = element;
-          return true;
+        if((element.optionIds === null || !element.optionIds.includes(optionId)) ||
+        (element._uniqueIdentifier !== this.$route.params.id && element.mainVariantId !==  this.$route.params.id)){
+          return false;
         }
+          possibleSelection.push(element);
       });
+
+      if(possibleSelection.length > 1 ){
+        return false;
+      }
+      this.selectedVariant = possibleSelection[0];
     },
     async fetchSingleProduct(productId) {
       const headers = {
@@ -82,6 +89,24 @@ export default {
     async setup (productId) {
       await this.fetchSingleProduct(productId);
       await this.getVariants(productId);
+    },
+    async addToCart() {
+      if (this.selectedVariant !== null) {
+        const headers = {
+          'Content-Type': 'application/json',
+          'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+          'sw-context-token': this.$store.state.contextToken
+        }
+        debugger; // eslint-disable-line no-debugger
+        const payload = {
+          items: [{
+            type: 'product',
+            referencedId: this.selectedVariant._uniqueIdentifier
+          }]
+        }
+        this.$store.state.cart = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/checkout/cart/line-item`, payload, headers);
+        this.selectedVariant = null;
+      }
     }
   },
   beforeMount() {
