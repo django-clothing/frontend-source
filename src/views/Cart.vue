@@ -4,8 +4,7 @@
       <h1 class="flex h-center collection--title">Warenkorb</h1>
     </div>
     <div class="container">
-      <CartItem />
-      <CartItem />
+      <CartItem :item="item" v-for="item in this.$store.state.cart.lineItems" :key="item"/>
     </div>
     <div class="container">
       <button class="item--add-to-cart pointer mb-50">Checkout</button>

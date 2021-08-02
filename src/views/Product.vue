@@ -51,7 +51,7 @@ export default {
     }
   },
   watch: {
-    "$route": "setup"
+    // "$route": "setup"
   },
   methods: {
     async loadVariant(optionId){
@@ -109,8 +109,15 @@ export default {
       }
     }
   },
-  beforeMount() {
-    this.setup(this.$route.params.id);
+  async beforeRouteEnter(to, from, next){
+    debugger; // eslint-disable-line no-debugger
+    try{
+      next(async vm =>   {
+        await vm.setup(to.params.id);
+      })
+    }catch (error){
+      console.error(error);
+    }
   }
 }
 </script>

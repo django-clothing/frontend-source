@@ -9,7 +9,7 @@
               />
             </div>
             <h2 class="collection-item--name">{{item.translated.name}}</h2>
-            <p>299.99€</p>
+            <p>{{ item.calculatedPrice.totalPrice }}€</p>
           </router-link>
         </div>
 </template>
