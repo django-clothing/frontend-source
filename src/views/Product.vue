@@ -14,9 +14,9 @@
           <div class="item--top-spacer">
             <h2 class="collection--title">{{ item.product.translated.name }}</h2>
             <h3 class="item--description--title">Beschreibung</h3>
-            <ul class="item--description--list">
+            <div class="item--description--list">
               {{ item.product.translated.description }}
-            </ul>
+            </div>
             <section class="item--top-spacer flex justify-content-center">
               <button :id="variant.id" v-bind:class="[selectedVariant !== null && selectedVariant.optionIds.includes(variant.id) ? 'item--size--active': 'item--size--inactive']"
                       class="pointer m-10"
@@ -27,6 +27,7 @@
                 <br/>
               </button>
             </section>
+            <h2 style="margin-bottom: 25px; font-weight: bold">{{ item.product.calculatedPrice.totalPrice }}€</h2>
             <section>
               <button v-if="true" class="item--add-to-cart pointer" @click="addToCart">add to cart</button>
               <button v-if="false" style="background: red" class="item--add-to-cart">out of stock</button>
