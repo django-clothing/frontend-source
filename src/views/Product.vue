@@ -56,7 +56,7 @@ export default {
   methods: {
     async loadVariant(optionId){
       const headers = {
-        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+        'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
       };
       const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
       const allProducts = allProductResponse.elements;
@@ -77,7 +77,7 @@ export default {
     },
     async fetchSingleProduct(productId) {
       const headers = {
-        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+        'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
       }
       this.item = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product/${productId}`, {}, headers);
     },
@@ -94,7 +94,7 @@ export default {
       if (this.selectedVariant !== null) {
         const headers = {
           'Content-Type': 'application/json',
-          'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+          'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
           'sw-context-token': this.$store.state.contextToken
         }
         debugger; // eslint-disable-line no-debugger

@@ -31,7 +31,7 @@ export default {
   methods: {
     async fetchProducts () {
       const headers = {
-        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+        'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
       }
       const allProductResponse = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/product`,{},headers );
       const allProducts = allProductResponse.elements;

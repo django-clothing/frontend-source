@@ -87,7 +87,7 @@ export default {
       const contextResponse = await fetch(`${process.env.VUE_APP_SHOP_STORE_URL}/context`,
           {
             headers: {
-              'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`
+              'sw-access-key': `${process.env.VUE_APP_API_KEY}`
             }
           });
       if (contextResponse.status !== 200) {
@@ -100,7 +100,7 @@ export default {
     async getInitialCart(contextToken){
       const headers = {
         'Content-Type': 'application/json',
-        'sw-access-key': `SWSCAUJB3N-I3ID1SEDCEJIXFQ`,
+        'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
         'sw-context-token': contextToken
       }
       const initCart = {name: "customerCart"}
