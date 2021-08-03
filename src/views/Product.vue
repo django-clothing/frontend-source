@@ -98,7 +98,7 @@ export default {
           'sw-access-key': `${process.env.VUE_APP_API_KEY}`,
           'sw-context-token': this.$store.state.contextToken
         }
-        debugger; // eslint-disable-line no-debugger
+        // debugger; // eslint-disable-line no-// debugger
         const payload = {
           items: [{
             type: 'product',
@@ -107,11 +107,12 @@ export default {
         }
         this.$store.state.cart = await post(`${process.env.VUE_APP_SHOP_STORE_URL}/checkout/cart/line-item`, payload, headers);
         this.selectedVariant = null;
+        this.$store.state.cartSize++;
       }
     }
   },
   async beforeRouteEnter(to, from, next){
-    debugger; // eslint-disable-line no-debugger
+    // debugger; // eslint-disable-line no-// debugger
     try{
       next(async vm =>   {
         await vm.setup(to.params.id);

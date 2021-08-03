@@ -17,20 +17,23 @@
       </router-link>
     </div>
     <div class="header--cart">
-      <router-link to="/cart">
+      <router-link to="/cart" class="nodecoration">
         <img
             class="header--cart--img"
             src="img/icons/shopping-cart.svg"
             alt="Warenkorb aufrufen"
         />
+        <p v-if="this.$store.state.cartSize > 0" class="bubble">
+          {{ this.$store.state.cartSize }}
+        </p>
       </router-link>
     </div>
   </header>
   <nav>
     <div id="nav-sidebar" class="nav--hidden">
-      <router-link to="/lookbook" class="nav--link">Lookbook</router-link>
-      <router-link to="/collection" class="nav--link">Collection</router-link>
-      <router-link to="/about" class="nav--link">About</router-link>
+      <router-link to="/lookbook" class="nav--link" onclick="toggleNav()">Lookbook</router-link>
+      <router-link to="/collection" class="nav--link" onclick="toggleNav()">Collection</router-link>
+      <router-link to="/about" class="nav--link" onclick="toggleNav()">About</router-link>
     </div>
     <img
         class="nav--hidden pointer"
@@ -75,7 +78,7 @@
 import post from "./assets/post";
 
 export default {
-  async mounted() {
+  async beforeMount() {
     await this.setUp()
   },
   methods: {
@@ -130,5 +133,16 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.bubble{
+  border-radius: 25px;
+  background: white;
+  color:black;
+  text-decoration: none;
+}
+
+.nodecoration{
+  text-decoration: none;
 }
 </style>

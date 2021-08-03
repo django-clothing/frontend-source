@@ -3,7 +3,8 @@ import { createStore } from 'vuex';
 const store = createStore({
     state: {
         cart: {},
-        contextToken: ''
+        contextToken: '',
+        cartSize: 0
     },
     mutations: {
         setCart(state, cart){
